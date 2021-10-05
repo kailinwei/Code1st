@@ -14,7 +14,7 @@ namespace Code1st.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "5.0.9");
+                .HasAnnotation("ProductVersion", "5.0.10");
 
             modelBuilder.Entity("Code1st.Models.Player", b =>
                 {
@@ -34,12 +34,9 @@ namespace Code1st.Data.Migrations
                     b.Property<string>("TeamName")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("TeamName1")
-                        .HasColumnType("TEXT");
-
                     b.HasKey("PlayerId");
 
-                    b.HasIndex("TeamName1");
+                    b.HasIndex("TeamName");
 
                     b.ToTable("Players");
                 });
@@ -257,7 +254,7 @@ namespace Code1st.Data.Migrations
                 {
                     b.HasOne("Code1st.Models.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamName1");
+                        .HasForeignKey("TeamName");
 
                     b.Navigation("Team");
                 });
